@@ -1,74 +1,83 @@
-//create on click event when img is clicked
-$(".buttons").on("click", function () {
+//make document ready to run javascript 
+$(document).ready(function () {
 
-    alert("You clicked a crystal!");
+    // make varibles to set inital value
+    var wins = 0;
+    var losses = 0;
 
-});
-console.log('TEST');
+    // generate random number & set random values to each crystal 
+    var targetNumber = Math.floor(Math.random() * ((120 - 19) + 1) + 19);
+    var totalNumber = 0;
+    var gemOne = Math.floor(Math.random() * ((12 - 1) + 1) + 1);
+    var gemTwo = Math.floor(Math.random() * ((12 - 1) + 1) + 1);
+    var gemThree = Math.floor(Math.random() * ((12 - 1) + 1) + 1);
+    var gemFour = Math.floor(Math.random() * ((12 - 1) + 1) + 1);
 
-//create counter to track total
-var counter = 0;
-$(".buttons").on("click", function () {
+    // set winning score as a var and then = to a function. make if else to display wins if user adds crystals correctly or displays losses if user does not. reset after win/loss
+    var winningScore = function () {
+        //if user wins display win from HTML and VAR 
+        if (totalNumber === targetNumber) {
+            wins++
+            $('.Wins').text(wins); //.text to pull from HTML class and display on the page
+            console.log(wins);
+            reset();
+            // adds a loss
+        } else if (totalNumber > targetNumber) {
+            losses++
+            $('.Losses').text(losses); //.text to pull from to HTML class and display on the page
+            console.log(losses);
+            // call to reset function
+            reset();
+        }
+    };
 
-    counter += 1;
+    // make reset a var, create the function and call the function to ensure reset of target number & crystal values once user wins or looses 
+    var reset = function () {
+        targetNumber = Math.floor(Math.random() * ((120 - 19) + 1) + 19);
+        totalNumber = 0;
+        gemOne = Math.floor(Math.random() * ((12 - 1) + 1) + 1);
+        gemTwo = Math.floor(Math.random() * ((12 - 1) + 1) + 1);
+        gemThree = Math.floor(Math.random() * ((12 - 1) + 1) + 1);
+        gemFour = Math.floor(Math.random() * ((12 - 1) + 1) + 1);
+        $('.winningNumber').text(targetNumber); //.text to pull from HTML and display the target number on the page
+        $('.totalNumber').text(""); // .text to display gems hidden value 
+        console.log("resetcalled")
+    };
 
-    alert("This crystal has been clicked!");
 
-});
-console.log('TEST2');
+    // set winning number to random target number           
+    $('.winningNumber').text(targetNumber);
+    console.log(targetNumber);
 
-var counter = 0;
-$(".buttons").on("click", function () {
+    //total number is set to 0, when user adds gemOne it will set a new value from above gemOne set to Math.random. set total number to .text to pull from HTML class so it will display
+    $('#firstClick').click(function () {
+        totalNumber = totalNumber + gemOne;
+        $('.totalNumber').text(totalNumber);
+        winningScore()
+        console.log("gemOne", gemOne)
+    });
 
-    counter += 10;
+    $('#secondClick').click(function () {
+        totalNumber = totalNumber + gemTwo;
+        $('.totalNumber').text(totalNumber);
+        winningScore()
+        console.log("gemTwo", gemTwo)
 
-    alert("New score is: " + counter);
-});
+    });
 
-//set target number to guess 
-var targetNumber = 66;
-$("#numberToGuess").text(targetNumber);
+    $('#thirdClick').click(function () {
+        totalNumber = totalNumber + gemThree;
+        $('.totalNumber').text(totalNumber);
+        winningScore()
+        console.log("gemThree", gemThree)
+    });
 
-var counter = 0;
-var numOptions = [10, 6, 4, 11];
-var increment = numOptions[Math.round(Math.random())];
+    $('#fourthClick').click(function () {
+        totalNumber = totalNumber + gemFour;
+        $('.totalNumber').text(totalNumber);
+        winningScore()
+        console.log("gemFour", gemFour)
 
-$(".buttons").on("click", function () {
-
-    counter += 10;
-
-    alert("New score is: " + counter);
-
-    //if statement to see if the counter is mathching the targetNumber. this is an event, with each click the numbers get compared against the targetNumber.
-    if (counter === targetNumber) {
-        alert("You win!");
-    }
-
-    //if the users clicks dont match the total they will get the loose alert
-    else if (counter >= targetNumber) {
-        alert("You lose!");
-    }
-
-});
-
-for (var i = 0; i < numOptions.length; i++) {
-    var image = $("<img>");
-    image.addClass("buttons");
-    image.attr("src", "assets/images/crystal.jpeg");
-    image.attr("data-imagevalue", numOptions[i]);
-    $(".buttons").append(image);
-}
-
-$(".buttons").on("click", function () {
-    var imagevalue = ($(this).attr("data-imagevalue"));
-    imagevalue = parseInt(imagevalue);
-    counter += imagevalue;
-    alert("New Score: " + counter);
-    if (counter === targetNumber) {
-        alert("You win!");
-    }
-    else if (counter >= targetNumber) {
-        alert("You loose!");
-    }
+    });
 });
 

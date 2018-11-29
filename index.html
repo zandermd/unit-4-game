@@ -10,34 +10,70 @@
 
     <!--RESET-->
     <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
-    <!--CSS-->
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-    <!--BOOTSTRAP CSS-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
-    <!--BOOTSTRAP JS/JQUERY-->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
         crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-        crossorigin="anonymous"></script>
+    <script src="./assets/javascript/game.js"></script>
 
 
 </head>
 
 <body>
-    <div class="container">
-        <h1>The Crystal Game</h1>
-        <br>
-        <br>
-        <br>
-        <h1> Number to Guess: <span id="numberToGuess"></span></h1>
+    <div class="jumbotron">
+        <h1 class="display-4">Welcome to the Crystal Game</h1>
+        <p class="lead">You will be given a random number at the start of the game.
 
-        <div class="buttons">
-            <script src="assets/javascript/game.js"></script>
+            There are four crystals below. By clicking on a crystal you will add a specific amount of points to your
+            total score.
+
+            You win the game by matching your total score to random number, you lose the game if your total score goes
+            above the random number.
+
+            The value of each crystal is hidden from you until you click on it.
+
+            Each time when the game starts, the game will change the values of each crystal.</p>
+        <div class="col-md-12 winning">Winning Number</div>
+        <div class="col-md-12 winningNumber">Winning Number</div>
+        <hr class="my-4">
+        <div class="row">
+            <div>Wins</div>
+            <div class="col-md-3 Wins"></div>
+            <div>Losses</div>
+            <div class="col-md-3 Losses"></div>
+            <div>Total Number</div>
+            <div class="col-md-3 totalNumber"></div>
         </div>
     </div>
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <img id="firstClick" src="https://www.energymuse.com/crystal-test/img/crystaltest-am-stone.jpg" alt="Gem One"
+                    height="150" width="150">
+            </div>
+            <div class="col-md-3">
+                <img id="secondClick" src="https://images-na.ssl-images-amazon.com/images/I/81SblKmD%2BuL._SX425_.jpg"
+                    alt="Gem Two" height="150" width="150">
+            </div>
+            <div class="col-md-3">
+                <img id="thirdClick" src="https://target.scene7.com/is/image/Target/GUEST_3dd33693-cf14-4f10-942f-35ee53a4d525?wid=488&hei=488&fmt=pjpeg"
+                    alt="Gem Three" height="150" width="150">
+            </div>
+            <div class="col-md-3">
+                <img id="fourthClick" src="https://images-eu.ssl-images-amazon.com/images/I/61GEp1zUZqL._AC_SS350_.jpg"
+                    alt="Gem Four" height="150" width="150">
+            </div>
+        </div>
+    </div>
+
+
 
 </body>
 
