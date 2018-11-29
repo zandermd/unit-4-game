@@ -1,5 +1,19 @@
 .crystal-image {
     width: 300px;
     height: 300px;
-    
   }
+
+  body, html {
+    /* add img & center and scale the image nicely */
+    height: 100%;
+    margin: 0;
+    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRp_Y99QRySt39hodMxuuQwzRdoIdpg_OzS-Tc3Vw6mpY0mOdf7kg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    cursor: pointer;
+}
+
+img {
+  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRp_Y99QRySt39hodMxuuQwzRdoIdpg_OzS-Tc3Vw6mpY0mOdf7kg");
+}
