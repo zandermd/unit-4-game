@@ -19,13 +19,13 @@ $(document).ready(function () {
         if (totalNumber === targetNumber) {
             wins++
             $('.Wins').text(wins); //.text to pull from HTML class and display on the page
-            console.log(wins);
+            //console.log(wins);
             reset();
             // adds a loss
         } else if (totalNumber > targetNumber) {
             losses++
             $('.Losses').text(losses); //.text to pull from to HTML class and display on the page
-            console.log(losses);
+            //console.log(losses);
             // call to reset function
             reset();
         }
@@ -41,27 +41,27 @@ $(document).ready(function () {
         gemFour = Math.floor(Math.random() * ((12 - 1) + 1) + 1);
         $('.winningNumber').text(targetNumber); //.text to pull from HTML and display the target number on the page
         $('.totalNumber').text(""); // .text to display gems hidden value 
-        console.log("resetcalled")
+        //console.log("resetcalled")
     };
 
 
     // set winning number to random target number           
     $('.winningNumber').text(targetNumber);
-    console.log(targetNumber);
+    //console.log(targetNumber);
 
     //total number is set to 0, when user adds gemOne it will set a new value from above gemOne set to Math.random. set total number to .text to pull from HTML class so it will display
     $('#firstClick').click(function () {
         totalNumber = totalNumber + gemOne;
         $('.totalNumber').text(totalNumber);
         winningScore()
-        console.log("gemOne", gemOne)
+        //console.log("gemOne", gemOne)
     });
 
     $('#secondClick').click(function () {
         totalNumber = totalNumber + gemTwo;
         $('.totalNumber').text(totalNumber);
         winningScore()
-        console.log("gemTwo", gemTwo)
+        
 
     });
 
@@ -69,14 +69,14 @@ $(document).ready(function () {
         totalNumber = totalNumber + gemThree;
         $('.totalNumber').text(totalNumber);
         winningScore()
-        console.log("gemThree", gemThree)
+        
     });
 
     $('#fourthClick').click(function () {
         totalNumber = totalNumber + gemFour;
         $('.totalNumber').text(totalNumber);
         winningScore()
-        console.log("gemFour", gemFour)
+       
 
     });
 });
